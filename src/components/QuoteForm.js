@@ -14,7 +14,7 @@ class QuoteForm extends Component {
   handleOnChange = event => {
     // Handle Updating Component State
     this.setState({
-      [event.name]: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -29,7 +29,7 @@ class QuoteForm extends Component {
     this.setState({
       content: '',
       author: ''
-    })
+    }, console.log(this.state))
   }
 
   render() {
@@ -80,8 +80,8 @@ class QuoteForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addQuote: (quote) => {dispatch(addQuote(quote))}
+    addQuote: (quote) => dispatch(addQuote(quote))
   }
 }
 //add arguments to connect as needed
-export default connect(mapDispatchToProps)(QuoteForm);
+export default connect(null, mapDispatchToProps)(QuoteForm);
